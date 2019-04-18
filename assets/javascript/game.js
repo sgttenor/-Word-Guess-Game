@@ -14,14 +14,16 @@ var words = [
   ];
 
 
-// var wordsElem = document.getElementById("words");
-//wordsElem.innerHTML = words;
+
 
 var guess; //user guess
 var letters = []; //correctly guessed letters
 var wrongLetters = []; //incorrectly guessed letters
 var counter = 0; //counts correct letters
 var lives; //counts users lives
+var score;//solved words
+var numGuesses = 9;
+
 var word = words[Math.floor(Math.random() * words.length)];
 
 //choosen word is replaced with
@@ -45,23 +47,19 @@ function checkLetter() {
         found = true;
       }
     }
-    //now all letters have been checked, was any found
-    if (found) return; //if yes return
+   
+    if (found) return; 
     
-    //wrong, lets also see if 
-    //it's not already logged, if not add it
-    //you could also then use  wrongLetters.length
-    //for working out if gueses area all used up.
     if (wrongLetters.indexOf(guess) < 0) {
       wrongLetters.push(guess);
       document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
     }
   }
+  
 }
 
 start();
 checkLetter();
-
 
 
 
